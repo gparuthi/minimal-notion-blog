@@ -1,4 +1,4 @@
-# timo-sh
+# Minimal blog based on timo-sh
 This source of my personal website. It's built with following technologies:
 * [React](https://reactjs.org/) – My frontend library of choice.
 * [Next.js](https://nextjs.org/) – It's static site generation is amazing, especially when hosted on [Vercel](https://vercel.com).
