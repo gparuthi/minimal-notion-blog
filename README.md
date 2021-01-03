@@ -1,4 +1,7 @@
 # Minimal Blog built using NextJS + Notion
+
+Demo at http://minimal-notion-blog.vercel.app
+
 This has all but the blog from https://github.com/timolins/timo-sh.
 It's built with following technologies:
 * [React](https://reactjs.org/) – My frontend library of choice.
