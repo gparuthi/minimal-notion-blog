@@ -1,8 +1,0 @@
-{
-  "alias": "minimal-notion-blog.vercel.com",
-  "build": {
-    "env": {
-    }
-  },
-  "version": 2
-}
