@@ -18,4 +18,4 @@ yarn
 yarn dev
 ```
 ## Deploy
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gparuthi/minimal-notion-blog/)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fgparuthi%2Fminimal-notion-blog&env=NOTION_BLOG_TABLE_ID)
