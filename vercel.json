@@ -1,5 +1,5 @@
 {
-  "alias": "sukh.vercel.com",
+  "alias": "minimal-notion-blog.vercel.com",
   "build": {
     "env": {
     }
