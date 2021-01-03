@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { generateRss } from "../../core/rss";
-import { getBlogTable } from "../../core/blog";
-import { Post } from "../../types/blog";
 import { config } from "../../config";
+import { getBlogTable } from "../../core/blog";
+import { generateRss } from "../../core/rss";
+import { Post } from "../../types/blog";
 
 export default async (_req: NextApiRequest, res: NextApiResponse) => {
   const posts = await getBlogTable<Post>(config.notionBlogTableId);

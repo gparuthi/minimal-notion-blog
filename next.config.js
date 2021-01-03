@@ -17,8 +17,8 @@ const withSvgr = (nextConfig = {}, nextComposePlugins = {}) => {
   });
 };
 
-module.exports = withPlugins([withSvgr], {
-  env: {
-    GITHUB_TOKEN: process.env.GITHUB_TOKEN,
-  },
-});
+// module.exports = withPlugins([withSvgr], {
+//   env: {
+//     GITHUB_TOKEN: process.env.ind,
+//   },
+// });

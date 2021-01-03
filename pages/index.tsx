@@ -1,85 +1,40 @@
+import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
-import { GetStaticProps } from "next";
-import { Hero } from "../components/sections/hero";
-import { Work } from "../components/sections/work";
+import { Blog } from "../components/sections/blog";
 import { Footer } from "../components/sections/footer";
-import { Achievements } from "../components/sections/achievements";
-import { GitHubActivity } from "../components/sections/github-activity";
-import { Post } from "../types/blog";
-import { getBlogTable, getPageBlocks } from "../core/blog";
-import { fetchRepos, Repo } from "../core/github";
 import { config } from "../config";
-import { Achievement } from "../types/achievement";
-import { Project } from "../types/project";
-import { getOpenGraphImage } from "../core/og-image";
+import { getBlogTable } from "../core/blog";
+import { Post } from "../types/blog";
 
-interface AppProps {
+
+interface BlogProps {
   posts: Post[];
-  achievements: Achievement[];
-  projects: Project[];
-  repos: {
-    starredRepos: Repo[];
-    contributedRepos: Repo[];
-  };
 }
 
-export const getStaticProps: GetStaticProps<AppProps> = async () => {
-  const [
-    posts,
-    projects,
-    achievementsData,
-    { contributedRepos, starredRepos },
-  ] = await Promise.all([
-    getBlogTable<Post>(config.notionBlogTableId),
-    getBlogTable<Project>(config.notionProjectTableId),
-    getBlogTable<Omit<Achievement, "blockMap">>(
-      config.notionAchievementTableId
-    ),
-
-    fetchRepos(config.githubUsername, config.githubToken),
-  ]);
-
-  const achievements: Achievement[] = await Promise.all(
-    achievementsData.map(async (a) => ({
-      ...a,
-      blockMap: await getPageBlocks(a.id),
-    }))
-  );
+export const getServerSideProps: GetServerSideProps<BlogProps> = async () => {
+  const posts = await getBlogTable<Post>(config.notionBlogTableId);
+  const filteredPosts = posts
+    .filter((post) => process.env.NODE_ENV === "development" || post.published)
+    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
 
   return {
     props: {
-      posts: posts
-        .filter((post) => post.published)
-        .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date))),
-      achievements,
-      projects: projects.filter((p) => p.published),
-      repos: {
-        starredRepos,
-        contributedRepos,
-      },
-    },
-    revalidate: 10,
+      posts: filteredPosts,
+    }
   };
 };
 
-export default ({ achievements, repos, projects }: AppProps) => (
+const App = ({ posts }: BlogProps) => (
   <>
     <NextSeo
-      title={"Timo Lins – Code · Design · Film"}
-      titleTemplate={"%s"}
-      openGraph={{
-        images: [getOpenGraphImage("Timo Lins")],
-      }}
-      twitter={{
-        handle: "@timolins",
-        cardType: "summary_large_image",
-      }}
-      description="Hey I'm Timo! I design and build digital products. Illustrating and film making are also my passion."
+      title={"My thoughts and musings"}
+      description="My personal blog about startups, coding and everything else that is on my mind."
     />
-    <Hero />
-    <Work projects={projects} preview />
-    <Achievements achievements={achievements} />
-    <GitHubActivity {...repos} />
+    <div className="flex-1">
+      <Blog posts={posts} />
+    </div>
     <Footer />
   </>
 );
+
+export default App

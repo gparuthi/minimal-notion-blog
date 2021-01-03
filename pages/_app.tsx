@@ -9,12 +9,11 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <link rel="shortcut icon" href="/favicon.png" />
-        <script async src="https://cdn.splitbee.io/sb.js"></script>
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Timo.sh blog – RSS Feed"
-          href="https://timo.sh/api/blog.xml"
+          title="blog.gauravparuthi.com blog – RSS Feed"
+          href="https://blog.gauravparuthi.com/api/blog.xml"
         />
       </Head>
       <Component {...pageProps} />

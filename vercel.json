@@ -1,8 +1,7 @@
 {
-  "alias": "timo.sh",
+  "alias": "sukh.vercel.com",
   "build": {
     "env": {
-      "GITHUB_TOKEN": "@timo-sh-github"
     }
   },
   "version": 2

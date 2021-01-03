@@ -1,11 +1,11 @@
 {
   "name": "timo-sh-website",
   "version": "1.0.0",
-  "description": "Personal page of Timo Lins",
-  "repository": "https://github.com/timolins/timo-sh",
-  "author": "Timo Lins <me@timo.sh>",
+  "description": "Personal page of GP",
+  "repository": "https://github.com/gparuthi/timo-sh",
+  "author": "GP",
   "scripts": {
-    "dev": "next -p 8000",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -17,19 +17,16 @@
     "@types/react": "^16.9.43",
     "autoprefixer": "^9.8.5",
     "next-compose-plugins": "^2.2.0",
-    "playwright": "^1.5.2",
     "typescript": "^3.9.7"
   },
   "dependencies": {
     "clsx": "^1.1.1",
     "dayjs": "^1.8.29",
-    "next": "^10.0.0",
+    "next": "^9.4.4",
     "next-seo": "^4.7.3",
-    "playwright-aws-lambda": "^0.6.0",
-    "playwright-core": "^1.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-notion": "^0.9.1-beta.1",
+    "react-notion": "^0.8.0",
     "tailwindcss": "^1.5.1"
   }
 }

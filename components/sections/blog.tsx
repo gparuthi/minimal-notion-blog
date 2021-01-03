@@ -6,6 +6,16 @@ interface BlogProps {
   posts: Post[];
 }
 
+function convertToSlug(Text: string)
+{
+    return Text
+        .trim()
+        .toLowerCase()
+        .replace(/[^\w ]+/g,'')
+        .replace(/ +/g,'-')
+        ;
+}
+
 export const Blog: React.FC<BlogProps> = ({ posts }) => {
   return (
     <div className="my-8 mx-4 md:mx-auto max-w-2xl">
@@ -19,7 +29,7 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
       <ul>
         {posts.map(post => (
           <li key={post.id}>
-            <Link href={`/blog/${post.slug}`}>
+            <Link href={`/${convertToSlug(post.title)}--${post.id}`}>
               <a className="my-2 py-4 px-4 -mx-4 hover:bg-gray-100 rounded-md block">
                 <div className="flex justify-between">
                   <span className="text-blue-600">{post.title}</span>
