@@ -17,6 +17,7 @@ function convertToSlug(Text: string)
 }
 
 export const Blog: React.FC<BlogProps> = ({ posts }) => {
+  console.log(posts)
   return (
     <div className="my-8 mx-4 md:mx-auto max-w-2xl">
       <div className="my-8">
@@ -28,7 +29,7 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
 
       <ul>
         {posts.map(post => (
-          <li key={post.id}>
+          post.date && (<li key={post.id}>
             <Link href={`/${convertToSlug(post.title)}--${post.id}`}>
               <a className="my-2 py-4 px-4 -mx-4 hover:bg-gray-100 rounded-md block">
                 <div className="flex justify-between">
@@ -40,7 +41,7 @@ export const Blog: React.FC<BlogProps> = ({ posts }) => {
                 <div className="mt-1 text-gray-700 mr-4">{post.preview}</div>
               </a>
             </Link>
-          </li>
+          </li>)
         ))}
       </ul>
     </div>
