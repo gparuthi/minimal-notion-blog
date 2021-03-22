@@ -12,8 +12,8 @@ function App({ Component, pageProps }: AppProps) {
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="blog.gauravparuthi.com blog – RSS Feed"
-          href="https://blog.gauravparuthi.com/api/blog.xml"
+          title="blog – RSS Feed"
+          href="https://example.com/api/blog.xml"
         />
       </Head>
       <Component {...pageProps} />

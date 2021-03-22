@@ -54,7 +54,7 @@ const BlogPost: React.FC<PostProps> = ({ post, blocks }) => {
       <NextSeo
         title={post.title}
         description={post.preview}
-        titleTemplate="%s – Gaurav Paruthi / Blog"
+        titleTemplate="%s – Minimal Journal"
       />
       <Head>
         <meta name="date" content={new Date(post.date).toDateString()} />

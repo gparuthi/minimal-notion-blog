@@ -13,7 +13,7 @@ const generateRssItem = (post: Post): string => `
 export const generateRss = (posts: Post[]): string => `
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Gaurav Paruthi – Blog</title>
+  <title> – Blog</title>
   <link>https://sukh.vercel.com</link>
   <description>Writing about coding, design and things I like</description>
   <language>en</language>
